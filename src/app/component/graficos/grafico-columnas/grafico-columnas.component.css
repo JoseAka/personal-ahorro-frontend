@@ -1,0 +1,12 @@
+.grafic-container {
+    margin: 20px;
+    border: 1px solid #ccc;
+    font: bold 12px/20px sans-serif;
+    display: block;
+    height: auto;
+}
+
+.grafic-container h2 {
+    font-size: 20px;
+    margin: 16px 16px 16px 16px;
+ }

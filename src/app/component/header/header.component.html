@@ -1,0 +1,102 @@
+<header>
+  <nav class="dropdownmenu">
+    <div (click)="navigate('')" class="logo">
+      <img src="../../../assets/img/logo.png" alt="Logo" />
+      <span>PERSONAL AHORRO</span>
+    </div>
+    <div>
+      <ul>
+        <ng-container *ngFor="let elemento of dataCabecera; let i = index">
+          <li
+            *ngIf="dataCabecera.length == 1"
+            class="li-border-menu-only-one-last"
+          >
+            <a (click)="navigate(elemento.primaria.key)">{{
+              elemento.primaria.value
+            }}</a>
+            <ng-container *ngIf="elemento.secundaria">
+              <ng-container *ngFor="let elementoSecundaria of elemento.secundaria; let i = index">
+                <ul id="submenu">
+                  <li>
+                    <a (click)="navigate(elementoSecundaria.primaria.key)">{{elementoSecundaria.primaria.value}}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </ng-container>
+          </li>
+
+          <li
+            *ngIf="
+              (dataCabecera.length > 0 && i == 0) ||
+              (dataCabecera.length >= 2 && i > 0 && i < dataCabecera.length - 1)
+            "
+            class="li-border-menu-first-mid"
+          >
+            <a (click)="navigate(elemento.primaria.key)">{{
+              elemento.primaria.value
+            }}</a>
+            <ng-container *ngIf="elemento.secundaria">
+              <ng-container *ngFor="let elementoSecundaria of elemento.secundaria; let i = index">
+                <ul id="submenu">
+                  <li>
+                    <a (click)="navigate(elementoSecundaria.primaria.key)">{{elementoSecundaria.primaria.value}}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </ng-container>
+          </li>
+
+          <li *ngIf="" class="li-border-menu-mid">
+            <a (click)="navigate(elemento.primaria.key)">{{
+              elemento.primaria.value
+            }}</a>
+            <ng-container *ngIf="elemento.secundaria">
+              <ng-container *ngFor="let elementoSecundaria of elemento.secundaria; let i = index">
+                <ul id="submenu">
+                  <li>
+                    <a (click)="navigate(elementoSecundaria.primaria.key)">{{elementoSecundaria.primaria.value}}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </ng-container>
+          </li>
+
+          <li
+            *ngIf="dataCabecera.length > 2 && i == dataCabecera.length - 1"
+            class="li-border-menu-only-one-last"
+          >
+            <a (click)="navigate(elemento.primaria.key)">{{
+              elemento.primaria.value
+            }}</a>
+            <ng-container *ngIf="elemento.secundaria">
+              <ng-container *ngFor="let elementoSecundaria of elemento.secundaria; let i = index">
+                <ul id="submenu">
+                  <li>
+                    <a (click)="navigate(elementoSecundaria.primaria.key)">{{elementoSecundaria.primaria.value}}</a>
+                  </li>
+                </ul>
+              </ng-container>
+            </ng-container>
+          </li>
+        </ng-container>
+      </ul>
+
+      <!-- <ul>
+        <li class="li-border-menu">
+          <a (click)="navigateToAcumulacionOperaciones()"
+            >ACUMULACIÓN OPERACIONES</a
+          >
+        </li>
+        <li class="li-border-menu">
+          <a (click)="navigateToTablas()">TABLAS</a>
+        </li>
+        <li>
+          <a>GRAFICAS</a>
+          <ul id="submenu">
+            <li><a (click)="navigateToGraficasColumnas()">COLUMNAS</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div>
+  </nav>
+</header>

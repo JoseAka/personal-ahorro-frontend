@@ -1,0 +1,11 @@
+<button (click)="openModal()">Abrir Calendario</button>
+
+<div *ngIf="showModal">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Calendario</h2>
+      <!-- Contenido del calendario aquí -->
+      <button class="close-button" (click)="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>

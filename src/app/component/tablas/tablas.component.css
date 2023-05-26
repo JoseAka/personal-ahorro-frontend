@@ -1,0 +1,30 @@
+.table-container {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font:  12px/20px sans-serif;
+}
+
+.table-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #1F419B;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #FFCE00;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid #1F419B;
+  }
