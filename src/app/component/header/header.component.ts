@@ -9,9 +9,8 @@ import { MenuObject } from "src/app/model/MenuObject";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-
   public dataMenu: Array<MenuObject> = [];
-
+  
   constructor(private router: Router) {}
 
   ngOnInit(): void {
