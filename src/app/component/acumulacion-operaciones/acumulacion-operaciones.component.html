@@ -1,9 +1,12 @@
 <div class="form-container">
   <h2>Acumulacion de operaciones</h2>
+
   <div class="container">
     <div class="item">
-      <div class="comboDiv">
-        <h3>Entidad: {{ sliderMin.value }}</h3>
+      <div class="top-section">
+        <h3>Entidad: {{ entidadSeleccionada }}</h3>
+      </div>
+      <div class="bottom-section">
         <select [(ngModel)]="entidadSeleccionada">
           <option *ngFor="let opcion of opcionesEntidades" [value]="opcion">
             {{ opcion }}
@@ -11,10 +14,9 @@
         </select>
       </div>
     </div>
-
     <div class="item">
-      <div class="container-calendar">
-        <div class="item-calendar">
+      <div class="sub-container">
+        <div class="sub-item">
           <mat-form-field class="param-form">
             <input
               matInput
@@ -28,7 +30,7 @@
             <mat-datepicker #startDatePicker></mat-datepicker>
           </mat-form-field>
         </div>
-        <div class="item-calendar">
+        <div class="sub-item">
           <mat-form-field class="param-form">
             <input
               matInput
@@ -45,7 +47,6 @@
         </div>
       </div>
     </div>
-
     <div class="item">
       <div class="sliderDiv">
         <h3>Importe mínimo: {{ sliderMin.value }} €</h3>
@@ -65,7 +66,6 @@
         </mat-slider>
       </div>
     </div>
-
     <div class="item">
       <div class="sliderDiv">
         <h3>Importe maximo: {{ sliderMax.value }} €</h3>
@@ -86,11 +86,5 @@
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-  </div>
+  
 </div>

@@ -29,23 +29,6 @@
   width: 100%;
 }
 
-.comboDiv {
-  display: block;
-  width: 100%;
-}
-
-.comboDiv h3 {
-  margin-left: 10px;
-  /* margin: 0 7px -15px; */
-}
-
-.comboDiv select {
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-}
-
-
 .sliderMin-custom ::ng-deep .mat-slider-thumb {
   background-color: #FFCE00;
 }
@@ -90,49 +73,51 @@
 
 .param-form {
   font-size: 15px;
-  background-color: #0000002c;
+  /* background-color: #0000002c; *//**************************************************************************************************/
 
 }
+
+/**************************************************************************************************/
+/**************************************************************************************************/
 
 .container {
   display: flex;
-  justify-content: space-between;
-}
-
-.container-calendar {
-  width: 100%;
-  display: inline-flex;
-  /* justify-content: space-between; */
 }
 
 .item {
-
-  display: grid;
-  place-items: center;
-
-  width: calc(25% - 20px);
-  margin-right: 20px;
-  margin-bottom: 10px;
-  height: 60px;
-
-  /* background-color: #bb2f2f5b; .........................................*/
+  flex: 1;
+  margin-right: 15px;
+  /* background-color: #ccc; *//**************************************************************************************************/
+  display: flex;
+  flex-direction: column;
 }
 
-.item-calendar {
-
-  display: block;
-  width: 36%;
-  align-content: center;
-  justify-content: center;
-  /* width: calc(50% - 20px); */
-  /* background-color: #bfc7e02c; .........................................*/
+.top-section {
+  height: 30%;
 }
 
-.item:last-child {
-  margin-right: 0;
-  /* Quita el margen derecho del último elemento */
+.top-section h3{
+  height: 100%;
+  margin: 0 7px;
 }
 
-select {
+
+.bottom-section {
+  padding: 5px;
+  height: 70%;
+}
+
+.bottom-section select{
   width: 100%;
+}
+
+.sub-container {
+  display: flex;
+  margin-top: 5px;
+}
+
+.sub-item {
+  flex: 1;
+  margin-right: 5px;
+  /* background-color: #eee; *//**************************************************************************************************/
 }
