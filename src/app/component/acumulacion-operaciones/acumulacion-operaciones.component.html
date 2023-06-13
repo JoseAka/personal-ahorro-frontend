@@ -1,4 +1,14 @@
 <div class="form-container">
+
+  <!-- <div class="row m-0 p-0 d-flex justify-content-between header-colapse">
+    <h2>Acumulacion de operaciones</h2>
+    <img src="../../../../assets/img/top.png" data-toggle="collapse" href="#container" aria-expanded="false"
+    (click)="collap()" *ngIf="collapse" alt="top">
+    <img src="../../../../assets/img/bottom.png" class="img-plus" data-toggle="collapse" href="#container"
+    aria-expanded="false" (click)="collap()" *ngIf="collapse === false" alt="bottom">
+  </div>
+  <hr> -->
+  
   <h2>Acumulacion de operaciones</h2>
 
   <div class="container">
@@ -15,7 +25,10 @@
       </div>
     </div>
     <div class="item">
-      <div class="sub-container">
+      <div class="top-section">
+        <h3>Periodo:</h3>
+      </div>
+      <div class="sub-container bottom-section">
         <div class="sub-item">
           <mat-form-field class="param-form">
             <input
@@ -48,8 +61,11 @@
       </div>
     </div>
     <div class="item">
-      <div class="sliderDiv">
+      <div class="top-section">
         <h3>Importe mínimo: {{ sliderMin.value }} €</h3>
+      </div>
+      <div class="sliderDiv">
+        <p>{{sliderMin.min}}</p>
         <mat-slider
           class="sliderMin-custom"
           [disabled]="sliderMin.disabled"
@@ -64,11 +80,15 @@
           (change)="clickSliderMin($event)"
         >
         </mat-slider>
+        <p>{{sliderMin.max}}</p>
       </div>
     </div>
     <div class="item">
+      <div class="top-section">
+        <h3>Importe mínimo: {{ sliderMax.value }} €</h3>
+      </div>
       <div class="sliderDiv">
-        <h3>Importe maximo: {{ sliderMax.value }} €</h3>
+        <p *ngIf="sliderMin.value<sliderMin.max">{{sliderMax.min}}</p>
         <mat-slider
           class="sliderMax-custom"
           [disabled]="sliderMax.disabled"
@@ -83,8 +103,106 @@
           (change)="clickSliderMax($event)"
         >
         </mat-slider>
+        <p *ngIf="sliderMin.value<sliderMin.max">{{sliderMax.max}}</p>
       </div>
     </div>
   </div>
-  
+
+  <div class="container">
+    <div class="item">
+      <div class="top-section">
+        <h3>Entidad: {{ entidadSeleccionada }}</h3>
+      </div>
+      <div class="bottom-section">
+        <select [(ngModel)]="entidadSeleccionada">
+          <option *ngFor="let opcion of opcionesEntidades" [value]="opcion">
+            {{ opcion }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="item">
+      <div class="top-section">
+        <h3>Periodo:</h3>
+      </div>
+      <div class="sub-container bottom-section">
+        <div class="sub-item">
+          <mat-form-field class="param-form">
+            <input
+              matInput
+              [matDatepicker]="startDatePicker"
+              placeholder="Fecha de inicio"
+              [(ngModel)]="startDate"
+            />
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"
+              ><mat-icon>calendar_today</mat-icon></mat-datepicker-toggle
+            >
+            <mat-datepicker #startDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="sub-item">
+          <mat-form-field class="param-form">
+            <input
+              matInput
+              [matDatepicker]="endDatePicker"
+              placeholder="Fecha de fin"
+              [(ngModel)]="endDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endDatePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="top-section">
+        <h3>Importe mínimo: {{ sliderMin.value }} €</h3>
+      </div>
+      <div class="sliderDiv">
+        <p>{{sliderMin.min}}</p>
+        <mat-slider
+          class="sliderMin-custom"
+          [disabled]="sliderMin.disabled"
+          [invert]="sliderMin.invert"
+          [max]="sliderMin.max"
+          [min]="sliderMin.min"
+          [step]="sliderMin.step"
+          [thumbLabel]="sliderMin.thumbLabel"
+          [tickInterval]="getSliderTickInterval()"
+          [(ngModel)]="sliderMin.value"
+          [vertical]="sliderMin.vertical"
+          (change)="clickSliderMin($event)"
+        >
+        </mat-slider>
+        <p>{{sliderMin.max}}</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="top-section">
+        <h3>Importe mínimo: {{ sliderMax.value }} €</h3>
+      </div>
+      <div class="sliderDiv">
+        <p *ngIf="sliderMin.value<sliderMin.max">{{sliderMax.min}}</p>
+        <mat-slider
+          class="sliderMax-custom"
+          [disabled]="sliderMax.disabled"
+          [invert]="sliderMax.invert"
+          [max]="sliderMax.max"
+          [min]="sliderMax.min"
+          [step]="sliderMax.step"
+          [thumbLabel]="sliderMax.thumbLabel"
+          [tickInterval]="getSliderTickInterval()"
+          [(ngModel)]="sliderMax.value"
+          [vertical]="sliderMax.vertical"
+          (change)="clickSliderMax($event)"
+        >
+        </mat-slider>
+        <p *ngIf="sliderMin.value<sliderMin.max">{{sliderMax.max}}</p>
+      </div>
+    </div>
+  </div>
+
 </div>
