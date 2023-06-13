@@ -10,7 +10,7 @@ export class AcumulacionOperacionesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  opcionesEntidades: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
+  opcionesEntidades: string[] = ["Opción 1", "Opción 2", "Opción 3"];
   entidadSeleccionada: string;
 
   startDate: Date;
@@ -28,28 +28,34 @@ export class AcumulacionOperacionesComponent implements OnInit {
     showTicks: true,
     step: 5,
     thumbLabel: true,
-    value: 50, // VALOR DEL API OPERAIONES max/min
+    value: 0, // VALOR DEL API OPERAIONES min
     vertical: false,
     tickInterval: 1,
   };
 
   sliderMax = {
     autoTicks: false,
-    disabled: true,
+    disabled: false,
     invert: false,
     max: 100, // VALOR DEL API OPERAIONES
     min: 0, // VALOR DEL API OPERAIONES
     showTicks: true,
     step: 5,
     thumbLabel: true,
-    value: 50, // VALOR DEL API OPERAIONES max/min
+    value: 100, // VALOR DEL API OPERAIONES max
     vertical: false,
     tickInterval: 1,
   };
 
+  public collapse = true;
+
+  public collap() {
+    this.collapse ? !this.collapse : this.collapse;
+  }
+
   clickSliderMin(event: any) {
     this.sliderMax.min = event.value;
-    this.sliderMax.value = (this.sliderMax.max + this.sliderMax.min) / 2;
+    // this.sliderMax.value = (this.sliderMax.max + this.sliderMax.min) / 2;
     if (this.sliderMax.min != this.sliderMax.max) {
       this.sliderMax.disabled = false;
     } else {
@@ -62,7 +68,6 @@ export class AcumulacionOperacionesComponent implements OnInit {
       this.sliderMax.disabled = true;
     }
   }
-
 
   getSliderTickInterval(): number | "auto" {
     if (this.sliderMin.showTicks) {
